@@ -2,24 +2,24 @@
  * AyuCase Clinical Suite — Main Application Controller & Router
  */
 
-import { patientsData } from './data/patients.js';
-import { consultationsData } from './data/consultations.js';
-import { initialClinicalContext, simulatedAiResponses } from './data/differentials.js';
-import { clinicsData } from './data/clinics.js';
-import { initialNotifications } from './data/notifications.js';
+import { patientsData } from './patients.js';
+import { consultationsData } from './consultations.js';
+import { initialClinicalContext, simulatedAiResponses } from './differentials.js';
+import { clinicsData } from './clinics.js';
+import { initialNotifications } from './notifications.js';
 
-import { renderSidebar } from './components/Sidebar.js';
-import { renderTopBar } from './components/TopBar.js';
-import { renderNewConsultModal } from './components/NewConsultModal.js';
-import { renderNotificationPanel } from './components/NotificationPanel.js';
-import { renderSearchModal } from './components/SearchModal.js';
+import { renderSidebar } from './Sidebar.js';
+import { renderTopBar } from './TopBar.js';
+import { renderNewConsultModal } from './NewConsultModal.js';
+import { renderNotificationPanel } from './NotificationPanel.js';
+import { renderSearchModal } from './SearchModal.js';
 
-import { renderDashboard } from './pages/Dashboard.js';
-import { renderChat } from './pages/Chat.js';
-import { renderMedicalHistory } from './pages/MedicalHistory.js';
-import { renderNearbyClinics } from './pages/NearbyClinics.js';
-import { renderSettings } from './pages/Settings.js';
-import { renderHelp } from './pages/Help.js';
+import { renderDashboard } from './Dashboard.js';
+import { renderChat } from './Chat.js';
+import { renderMedicalHistory } from './MedicalHistory.js';
+import { renderNearbyClinics } from './NearbyClinics.js';
+import { renderSettings } from './Settings.js';
+import { renderHelp } from './Help.js';
 
 // Global State
 class AppState {
