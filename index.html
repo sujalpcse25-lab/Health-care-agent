@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AyuCase Clinical Suite — Digital Patient Case-Taking</title>
+  
+  <!-- Inter Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols Icons (Outlined) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            ayucase: {
+              teal: {
+                950: '#002626',
+                900: '#003838',
+                800: '#004d40',
+                700: '#0f766e',
+                600: '#0d9488',
+                500: '#14b8a6',
+                400: '#2dd4bf',
+                100: '#ccfbf1',
+                50: '#f0fdfa'
+              }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AyuCase Design System Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased h-screen w-screen overflow-hidden select-none">
+
+  <!-- Fallback Alert for direct file:/// double-click -->
+  <div id="file-protocol-warning" style="display: none;" class="fixed inset-0 z-50 bg-slate-900/95 text-white flex items-center justify-center p-6 select-text">
+    <div class="max-w-md bg-slate-800 p-6 rounded-2xl border border-teal-500/50 shadow-2xl text-center space-y-4">
+      <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mx-auto text-2xl font-bold">⚠️</div>
+      <h2 class="text-lg font-bold">Local Web Server Required</h2>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Modern web browsers block modular JavaScript (<code class="bg-slate-900 px-1.5 py-0.5 rounded text-teal-300">ES Modules</code>) when opened directly from Windows Explorer via <code class="bg-slate-900 px-1.5 py-0.5 rounded text-amber-300">file:///</code>.
+      </p>
+      <div class="p-3 bg-slate-900 rounded-xl text-xs text-teal-300 font-mono text-left space-y-1.5">
+        <p class="text-slate-400">To run AyuCase Clinical Suite:</p>
+        <p>▶ Double-click <strong class="text-white">run.bat</strong></p>
+        <p>▶ Or run in terminal: <strong class="text-white">python run.py</strong></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    if (window.location.protocol === 'file:') {
+      const warning = document.getElementById('file-protocol-warning');
+      if (warning) warning.style.display = 'flex';
+    }
+  </script>
+
+  <!-- Root Application Layout -->
+  <div id="app" class="flex h-screen w-screen overflow-hidden relative">
+    
+    <!-- Sidebar Container -->
+    <div id="sidebar-container" class="h-full"></div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col h-full overflow-hidden">
+      <!-- TopBar Header Container -->
+      <div id="topbar-container"></div>
+
+      <!-- Router Page Viewport -->
+      <main id="main-viewport" class="flex-1 flex overflow-hidden relative bg-slate-50 dark:bg-slate-950"></main>
+    </div>
+
+  </div>
+
+  <!-- Global Modals & Overlays Container -->
+  <div id="modals-container"></div>
+
+  <!-- Main JavaScript Application Module -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
